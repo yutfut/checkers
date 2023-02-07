@@ -2,15 +2,21 @@ import os
 
 import colorama
 
-a = [
-    ['  ', 'bc', '  ', 'bc', '  ', 'bc', '  ', 'bc'],
-    ['bc', '  ', 'bc', '  ', 'bc', '  ', 'bc', '  '],
-    ['  ', 'bc', '  ', 'bc', '  ', 'bc', '  ', 'bc'],
-    ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
-    ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
-    ['wc', '  ', 'wc', '  ', 'wc', '  ', 'wc', '  '],
-    ['  ', 'wc', '  ', 'wc', '  ', 'wc', '  ', 'wc'],
-    ['wc', '  ', 'wc', '  ', 'wc', '  ', 'wc', '  ']
+figure = {
+    0: '  ',
+    1: 'wc',
+    2: 'bc'
+}
+
+board = [
+    [0, 2, 0, 2, 0, 2, 0, 2],
+    [2, 0, 2, 0, 2, 0, 2, 0],
+    [0, 2, 0, 2, 0, 2, 0, 2],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0]
 ]
 
 
@@ -21,11 +27,13 @@ def show_board():
     print()
 
     print('  -------------------------')
+
     counter = 8
-    for i in range(len(a)):
+
+    for i in range(len(board)):
         print(counter, end=' |')
-        for j in range(len(a[i])):
-            print(a[i][j], end='|')
+        for j in range(len(board[i])):
+            print(figure[board[i][j]], end='|')
         print(' ', end='')
         print(counter)
         counter -= 1
