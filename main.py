@@ -19,10 +19,12 @@ board = [
     [1, 0, 1, 0, 1, 0, 1, 0]
 ]
 
+step_counter = 0
+
 
 def show_board():
     print('   ', end='')
-    for i in 'ABCDEFGH':
+    for i in 'abcdefgh':
         print(i, end='  ')
     print()
 
@@ -40,10 +42,30 @@ def show_board():
         print('  -------------------------')
 
     print('   ', end='')
-    for i in 'ABCDEFGH':
+    for i in 'abcdefgh':
         print(i, end='  ')
     print()
 
 
+def move():
+    print("выберите фигуру которой будите ходит:", end="\t")
+    start_move = input()
+    first_part_move = start_move[0]
+    second_part_move = start_move[1]
+    print(first_part_move)
+    print(second_part_move)
+
+
+def start_game():
+    while True:
+        if step_counter % 2 == 0:
+            os.system('clear')
+            show_board()
+            print('Ход белых')
+            move()
+        else:
+            print('Ход черных')
+
+
 if __name__ == '__main__':
-    show_board()
+    start_game()
